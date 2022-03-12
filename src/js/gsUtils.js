@@ -131,6 +131,9 @@ var gsUtils = {
   //tests for non-standard web pages. does not check for suspended pages!
   isSpecialTab: function(tab) {
     const url = tab.url || tab.pendingUrl;
+    if (!tab || typeof tab == "undefined") {
+      return false;
+    }
     if (gsUtils.isSuspendedTab(tab, true)) {
       return false;
     }
